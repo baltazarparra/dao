@@ -6,7 +6,8 @@
     ini_set('display_errors', 1);
     session_start();
     spl_autoload_register(function($nameClass) {
-        $filename = $nameClass . ".php"; 
+        $dirClass = "class";
+        $filename = str_replace ("\\", "/", "class" . DIRECTORY_SEPARATOR . $nameClass . ".php"); 
         if (file_exists($filename)) {
             require_once($filename);
         }
